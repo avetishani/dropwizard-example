@@ -30,7 +30,7 @@ pipeline {
         stage('Docker build') {
             steps {
                 skript {
-                    app = docker.build
+                    docker.build
                 }
             }
         }
