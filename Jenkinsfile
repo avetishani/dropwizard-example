@@ -29,9 +29,7 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-                skript {
-                    docker.build
-                }
+                docker.build
             }
         }
         stage('Docker push') {
