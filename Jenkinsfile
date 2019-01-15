@@ -29,7 +29,7 @@ pipeline {
         }
         stage('Docker build') {
             steps {
-                 docker.build: 'dropwizard'
+                 docker.build: 'Dockerfile'
             }
         }
         stage('Docker push') {
