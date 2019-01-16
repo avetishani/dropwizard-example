@@ -80,7 +80,7 @@ pipeline
 
                     // Build the docker image using a Dockerfile
 
-                    docker.build("$IMAGE","babinskiy/dropwizard-example/Dockerfile")
+                    docker.build("$IMAGE","Dockerfile")
 
                 }
 
