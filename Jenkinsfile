@@ -29,7 +29,9 @@ pipeline {
         }
         stage('BuildConteiner') {
             steps {
-                docker.build
+                script {
+                     docker.build
+                }
             }
         }
     }
