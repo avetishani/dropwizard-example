@@ -18,7 +18,7 @@ pipeline
 
         VERSION = 'latest'
 
-        PROJECT = 'tap_sample'
+        PROJECT = 'application'
 
         IMAGE = 'tap_sample:latest'
 
