@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Build') {
+        stage('S3Copy') {
             steps {
                 s3Upload acl: 'Private', bucket: '30daysdevops/jenkins/qa', cacheControl: '', excludePathPattern: '', file: '**/*.jar', includePathPattern: '', metadatas: [''], sseAlgorithm: '', workingDir: ''
             }
