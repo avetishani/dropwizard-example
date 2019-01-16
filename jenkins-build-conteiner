@@ -80,7 +80,7 @@ pipeline
 
                     // Build the docker image using a Dockerfile
 
-                    docker.build("$IMAGE","Dockerfile")
+                    docker.build("$IMAGE")
 
                 }
 
