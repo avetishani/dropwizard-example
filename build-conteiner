@@ -61,7 +61,7 @@ pipeline
                     IMAGE = "$PROJECT:$VERSION"
 
                 }
-
+                s3Download bucket: '30daysdevops', file: 'dropwizard-example-0.0.1-SNAPSHOT.jar', path: 'jenkins/master'
 
             }
 
