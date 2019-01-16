@@ -30,7 +30,7 @@ pipeline {
         stage('BuildConteiner') {
             steps {
                 script {
-                     docker.build('demo')
+                     docker.build("demo")
                 }
             }
         }
