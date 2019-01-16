@@ -18,13 +18,13 @@ pipeline
 
         VERSION = 'latest'
 
-        PROJECT = 'tap_sample'
+        PROJECT = 'appserve'
 
-        IMAGE = 'tap_sample:latest'
+        IMAGE = 'appserve:latest'
 
-        ECRURL = 'http://999999999999.dkr.ecr.eu-central-1.amazonaws.com'
+        ECRURL = 'http://230883561944.dkr.ecr.us-east-1.amazonaws.com'
 
-        ECRCRED = 'ecr:eu-central-1:tap_ecr'
+        ECRCRED = 'ecr:us-east-1:config-ecr'
 
     }
 
@@ -61,6 +61,7 @@ pipeline
                     IMAGE = "$PROJECT:$VERSION"
 
                 }
+
 
             }
 
