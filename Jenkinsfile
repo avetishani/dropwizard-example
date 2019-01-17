@@ -19,7 +19,7 @@ pipeline {
                 always {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
-                    sh 'git tag -a some_tag -m Jenkins'
+                    sh 'git tag -a 0.1 -m Jenkins'
                     sh 'git push --tags'
                 }
             }
