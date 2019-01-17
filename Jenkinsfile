@@ -25,7 +25,7 @@ pipeline {
         }
         stage('S3Copy') {
             steps {
-                s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'target/dropwizard-example-"${env.BUILD_NUMBER}".jar', metadatas: [''], sseAlgorithm: '', workingDir: ''
+                s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'target/', metadatas: [''], sseAlgorithm: '', workingDir: ''
                 s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'mysql.yml', metadatas: [''], sseAlgorithm: '', workingDir: ''
             }
         }
