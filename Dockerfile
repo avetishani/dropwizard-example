@@ -4,4 +4,4 @@ ADD dropwizard.jar dropwizard.jar
 ADD mysql.yml mysql.yml
 EXPOSE 8080
 EXPOSE 8081
-CMD java -jar dropwizard.jar server mysql.yml
+CMD java -Xmx750M -jar dropwizard.jar server mysql.yml
