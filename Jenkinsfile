@@ -19,7 +19,8 @@ pipeline {
                 always {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
-                    sh 'mv target/dropwizard-example.jar target/dropwizard-example-${BUILD_NUMBER}.jar'
+                    sh 'git tag -a some_tag -m 'Jenkins''
+                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags'
                 }
             }
         }
