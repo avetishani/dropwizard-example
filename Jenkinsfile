@@ -19,7 +19,7 @@ pipeline {
                 always {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
-                    sh 'mv target/dropwizard-example.jar target/dropwizard-example-${BUILD_NUMBER}.jar
+                    sh 'mv target/dropwizard-example.jar target/dropwizard-example-${BUILD_NUMBER}.jar'
                 }
             }
         }
