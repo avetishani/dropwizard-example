@@ -5,6 +5,11 @@ pipeline {
             args '-v /root/.m2:/root/.m2'
         }
     }
+    environment {
+        git url: 'https://github.com/babinskiy/dropwizard-example'
+        env.GIT_TAG_NAME = gitTagName()
+        env.GIT_TAG_MESSAGE = gitTagMessage()
+    }
     stages {
         stage('Build') {
             steps {
@@ -19,10 +24,18 @@ pipeline {
                 always {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
-                    sshagent (credentials: ['591c4f2c-e5eb-43ff-aef3-731995297aa7']) {
-                        sh("git tag -a some_tag -m 'Jenkins'")
-                        sh('git push <REPO> --tags')
+                    /** @return The tag name, or `null` if the current commit isn't a tag. */
+                    String gitTagName() {
+                        commit = getCommit()
+                        if (commit) {
+                            desc = sh(script: "git describe --tags ${commit}", returnStdout: true)?.trim()
+                            if (isTag(desc)) {
+                                return desc
+                            }
+                        }
+                        return null
                     }
+
                 }
             }
         }
