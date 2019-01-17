@@ -24,7 +24,7 @@ pipeline
 
         ECRURL = 'http://230883561944.dkr.ecr.us-east-1.amazonaws.com'
 
-        ECRCRED = 'ecr:us-east-1:config-ecr'
+        ECRCRED = 'ecr:us-east-1:170f99b0-5d30-44af-80d8-7209bd500e3e'
 
     }
 
@@ -115,7 +115,7 @@ pipeline
 
                     // login to ECR - for now it seems that that the ECR Jenkins plugin is not performing the login as expected. I hope it will in the future.
 
-                    sh("eval \$(aws ecr get-login --us-east-1  --no-include-email | sed 's|https://||')")
+                    sh("eval \$(aws ecr get-login --no-include-email | sed 's|https://||')")
 
                     // Push the Docker image to ECR
 
