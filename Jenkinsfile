@@ -19,12 +19,13 @@ pipeline {
                 always {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
+                    sh 'mv target/dropwizard-example.jar target/dropwizard-example-${BUILD_NUMBER}.jar
                 }
             }
         }
         stage('S3Copy') {
             steps {
-                s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'target/dropwizard-example-0.0.1-SNAPSHOT.jar', metadatas: [''], sseAlgorithm: '', workingDir: ''
+                s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'target/*.jar', metadatas: [''], sseAlgorithm: '', workingDir: ''
                 s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'mysql.yml', metadatas: [''], sseAlgorithm: '', workingDir: ''
             }
         }
