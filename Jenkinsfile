@@ -25,7 +25,7 @@ pipeline {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
                     /** @return The tag name, or `null` if the current commit isn't a tag. */
-                    String gitTagName() {
+                    gitTagName() {
                         commit = getCommit()
                         if (commit) {
                             desc = sh(script: "git describe --tags ${commit}", returnStdout: true)?.trim()
