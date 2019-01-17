@@ -20,7 +20,7 @@ pipeline {
                     archiveArtifacts artifacts: '**/*.jar', fingerprint: true
                     junit 'target/surefire-reports/*.xml'
                     sh 'git tag -a some_tag -m Jenkins'
-                    sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags'
+                    sh 'git push --tags'
                 }
             }
         }
