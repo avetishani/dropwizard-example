@@ -23,7 +23,7 @@ pipeline {
             }
         }
         stage('S3Copy') {
-            when { tag "release-*" }
+            when { tag 'release-*' }
             steps {
                 s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'target/', metadatas: [''], sseAlgorithm: '', workingDir: ''
                 s3Upload acl: 'Private', bucket: '30daysdevops/dropwizard/release', cacheControl: '', excludePathPattern: '', file: 'mysql.yml', metadatas: [''], sseAlgorithm: '', workingDir: ''
