@@ -12,7 +12,7 @@ database:
   user: user
 
   # the password
-  password: jD6Y#%k2
+  password: 
 
   # the JDBC URL
   url: jdbc:mysql://dm15cpobta14nvz.cq9tffzgbytc.us-east-1.rds.amazonaws.com:3306/example
